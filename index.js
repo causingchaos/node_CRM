@@ -17,7 +17,11 @@ mongoose.connect('mongodb://localhost/CRMdb',{
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
 
-routes(app); ///
+//serving routes
+routes(app);
+
+//serving static files
+app.use(express.static('public'))
 
 app.get('/', (req,res) => 
     res.send(`Node and express server running on port ${PORT}`)
